@@ -4,12 +4,30 @@
   "description": "Backend da Todo List para o processo seletivo da V360.",
   "main": "src/index.js",
   "scripts": {
-    "test": "test"
+    "start": "nodemon src/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "todo-list-back"
   },
   "author": "Luiz Fernando Gonçalves Rocha",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0"
+  },
+  "type": "module"
 }
