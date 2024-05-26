@@ -105,7 +105,7 @@ const editTask = async (req, res) => {
     if (req.body.date) {
       res.locals.task.date = req.body.date;
     }
-    if (req.body.completed) {
+    if (req.body.completed !== undefined) {
       res.locals.task.completed = req.body.completed;
     }
     await res.locals.task.save();
