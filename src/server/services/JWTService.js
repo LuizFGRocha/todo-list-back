@@ -3,7 +3,7 @@ import jsonwebtoken from 'jsonwebtoken';
 const sign = (data) => {
   if (!process.env.JWT_SECRET) return 'JWT_SECRET_NOT_FOUND';
   
-  return jsonwebtoken.sign(data, process.env.JWT_SECRET, { expiresIn: '1h' });
+  return jsonwebtoken.sign(data, process.env.JWT_SECRET, { expiresIn: '72h' });
 };
 
 const verify = (token) => {
