@@ -43,3 +43,6 @@ O aplicativo ficará disponível na porta escolhida do host local.
 Foi realizado o deploy do aplicativo na Azure. Ele está acessível pelo seguinte link:
 
 [https://jolly-rock-0c17fe50f.5.azurestaticapps.net/](https://jolly-rock-0c17fe50f.5.azurestaticapps.net/)
+
+Obs: o deploy foi realizado na tier grátis que oferece recursos compartilhados. Pode haver instabilidade.
+
