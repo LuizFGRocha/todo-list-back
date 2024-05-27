@@ -114,6 +114,9 @@ const editTask = async (req, res) => {
     if (req.body.completed !== undefined) {
       res.locals.task.completed = req.body.completed;
     }
+    if (req.body.removeDate) {
+      res.locals.task.date = undefined;
+    }
     await res.locals.task.save();
     return res.status(StatusCodes.OK).json({
       message: "Task edited successfully"

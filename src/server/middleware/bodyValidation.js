@@ -54,5 +54,6 @@ export const taskEditSchema = yup.object().shape({
   title: yup.string().max(50),
   description: yup.string().max(200),
   date: yup.date(),
-  completed: yup.boolean()
+  completed: yup.boolean(),
+  removeDate: yup.boolean()
 });
