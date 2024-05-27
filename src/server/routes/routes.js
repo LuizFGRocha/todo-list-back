@@ -82,4 +82,8 @@ router.delete('/task/:taskId', [ checks.checkParamTaskId, checkJwtToken ], delet
 
 router.delete('/taskList/:taskListId', [ checks.checkParamTaskListId, checkJwtToken ], deleteTaskList);
 
+router.get('/checkToken/:userId', [ checks.checkParamUserId, checkJwtToken ], (req, res) => {
+    res.status(200).send('Token is valid');
+});
+
 export { router };
