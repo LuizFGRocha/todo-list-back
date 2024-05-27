@@ -1,6 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { TaskList } from "../models/taskList.js";	
 import { Task } from "../models/task.js";
+import { User } from "../models/user.js";
 
 // Controllers para o CRUD das task lists e tasks
 
@@ -16,7 +17,9 @@ const createTaskList = async (req, res) => {
     if (req.body.date) {
       taskList.date = req.body.date;
     }
+    res.locals.user.taskLists.push(taskList._id);
     await taskList.save();
+    await res.locals.user.save();
     return res.status(StatusCodes.CREATED).json({
       message: "Task list created successfully",
     });
@@ -53,7 +56,6 @@ const editTaskList = async (req, res) => {
 }
 
 const getTaskList = async (req, res) => {
-  // @todo fazer o negócio não retornar o owner
   const populatedTaskList = await res.locals.taskList.populate({ path: "tasks", select: '-owner' });
   return res.status(StatusCodes.OK).json({
     taskList: populatedTaskList
@@ -64,6 +66,7 @@ const deleteTaskList = async (req, res) => {
   try {
     await Task.deleteMany({ taskList: res.locals.taskList._id });
     await TaskList.deleteOne({ _id: res.locals.taskList._id });
+    res.locals.user.taskLists = res.locals.user.taskLists.filter(taskListId => taskListId !== res.locals.taskList._id);
     return res.status(StatusCodes.OK).json({
       message: "Task list deleted successfully"
     });
@@ -144,12 +147,10 @@ const deleteTask = async (req, res) => {
 }
 
 const getTaskLists = async (req, res) => {
-  const taskLists = await TaskList.aggregate([
-    { $match: { owner: res.locals.user._id } },
-    { $lookup: { from: "tasks", localField: "tasks", foreignField: "_id", as: "tasks" } },
-    { $project: { owner: 0 } },
-    { $sort: { date: 1 } }
-  ]);
+  const { taskLists } = await res.locals.user.populate({ path: "taskLists", populate: { path: "tasks" }});
+
+  console.log('Pedido recebido: ', taskLists);
+
   return res.status(StatusCodes.OK).json({
     taskLists
   });
