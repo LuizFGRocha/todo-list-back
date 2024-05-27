@@ -27,7 +27,7 @@ const criarTaskListTutorial = async (user) => {
     taskList: tutorialTaskList._id,
   });
   const task5 = new Task({
-    title: "Todos os campos são editáveis, e você pode marcar a task como concluída!",
+    title: "Todos os campos são editáveis!",
     taskList: tutorialTaskList._id,
   });
   const task6 = new Task({
