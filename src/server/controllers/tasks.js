@@ -38,6 +38,9 @@ const editTaskList = async (req, res) => {
     if (req.body.date) {
       res.locals.taskList.date = req.body.date;
     }
+    if (req.body.removeDate) {
+      res.locals.taskList.date = undefined;
+    }
     await res.locals.taskList.save();
     return res.status(StatusCodes.OK).json({
       message: "Task list edited successfully"
