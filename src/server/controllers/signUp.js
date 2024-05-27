@@ -6,7 +6,7 @@ import { Task } from "../models/task.js";
 
 const criarTaskListTutorial = async (user) => {
   const tutorialTaskList = new TaskList({
-    name: "Bem vindo ao To Do List!",
+    name: "Bem vindo ao ToDo List!",
     description: "Essa é a sua primeira task list. Você pode criar quantas quiser!",
     owner: user._id,
   });

@@ -147,7 +147,7 @@ const deleteTask = async (req, res) => {
 }
 
 const getTaskLists = async (req, res) => {
-  const { taskLists } = await res.locals.user.populate({ path: "taskLists", populate: { path: "tasks" }});
+  const { taskLists } = await res.locals.user.populate({ path: "taskLists", populate: { path: "tasks" }, select: '-owner'});
 
   console.log('Pedido recebido: ', taskLists);
 
