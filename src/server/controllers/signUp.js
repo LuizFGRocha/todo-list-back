@@ -15,28 +15,36 @@ const task1 = new Task({
   taskList: tutorialTaskList._id,
 });
 const task2 = new Task({
-  title: "Clique na lixeira para deletar a task list!",
+  title: "Clique no indicador de conclusão ao lado para alterar o status da tarefa!",
   taskList: tutorialTaskList._id,
 });
 const task3 = new Task({
-  title: "Clique no lápis para editar a task list!",
+  title: "Clique na lixeira para deletar a task list!",
   taskList: tutorialTaskList._id,
 });
 const task4 = new Task({
-  title: "Todos os campos são editáveis, e você pode marcar a task como concluída!",
+  title: "Clique no lápis para editar a task list!",
   taskList: tutorialTaskList._id,
 });
 const task5 = new Task({
-  title: "No modo de edição, clique na lixeira ao lado para deletar a task!",
+  title: "Todos os campos são editáveis, e você pode marcar a task como concluída!",
   taskList: tutorialTaskList._id,
 });
 const task6 = new Task({
+  title: "No modo de edição, clique na lixeira ao lado para deletar a task!",
+  taskList: tutorialTaskList._id,
+});
+const task7 = new Task({
   title: "No modo de edição, clique em 'Salvar' para salvar as alterações!",
   taskList: tutorialTaskList._id,
 });
-tutorialTaskList.tasks.push(task1, task2, task3, task4, task5, task6);
+const task8 = new Task({
+  title: 'Clique no "+" abaixo para criar uma task!',
+  taskList: tutorialTaskList._id,
+});
+tutorialTaskList.tasks.push(task1, task2, task3, task4, task5, task6, task7, task8);
 await tutorialTaskList.save();
-task1.save(); task2.save(); task3.save(); task4.save(); task5.save(); task6.save();
+task1.save(); task2.save(); task3.save(); task4.save(); task5.save(); task6.save(); task7.save(); task8.save();
 }
 
 export const signUp = async (req, res) => {
