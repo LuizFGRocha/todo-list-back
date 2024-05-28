@@ -37,7 +37,7 @@ export const taskListSchema = yup.object().shape({
 });
 
 export const taskListEditSchema = yup.object().shape({
-  name: yup.string().max(50),
+  name: yup.string().min(1).max(50),
   description: yup.string().max(200),
   date: yup.date(),
   removeDate: yup.boolean()
