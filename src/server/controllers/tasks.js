@@ -32,16 +32,16 @@ const createTaskList = async (req, res) => {
 
 const editTaskList = async (req, res) => {
   try {
-    if (req.body.name) {
+    if (req.body.name !== undefined) {
       res.locals.taskList.name = req.body.name;
     }
-    if (req.body.description) {
+    if (req.body.description !== undefined) {
       res.locals.taskList.description = req.body.description;
     }
-    if (req.body.date) {
+    if (req.body.date !== undefined) {
       res.locals.taskList.date = req.body.date;
     }
-    if (req.body.removeDate) {
+    if (req.body.removeDate !== undefined && req.body.removeDate === true) {
       res.locals.taskList.date = undefined;
     }
     await res.locals.taskList.save();
@@ -102,19 +102,19 @@ const createTask = async (req, res) => {
 
 const editTask = async (req, res) => {
   try {
-    if (req.body.title) {
+    if (req.body.title !== undefined) {
       res.locals.task.title = req.body.title;
     }
-    if (req.body.description) {
+    if (req.body.description !== undefined) {
       res.locals.task.description = req.body.description;
     }
-    if (req.body.date) {
+    if (req.body.date !== undefined) {
       res.locals.task.date = req.body.date;
     }
     if (req.body.completed !== undefined) {
       res.locals.task.completed = req.body.completed;
     }
-    if (req.body.removeDate) {
+    if (req.body.removeDate !== undefined && req.body.removeDate === true) {
       res.locals.task.date = undefined;
     }
     await res.locals.task.save();
