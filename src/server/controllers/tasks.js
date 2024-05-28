@@ -56,7 +56,7 @@ const editTaskList = async (req, res) => {
 }
 
 const getTaskList = async (req, res) => {
-  const populatedTaskList = await res.locals.taskList.populate({ path: "tasks", select: '-owner' });
+  const populatedTaskList = await res.locals.taskList.populate("tasks");
   return res.status(StatusCodes.OK).json({
     taskList: populatedTaskList
   });
