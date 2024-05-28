@@ -9,9 +9,8 @@ const sign = (data) => {
 const verify = (token) => {
   if (!process.env.JWT_SECRET) return 'JWT_SECRET_NOT_FOUND';
 
-  const decoded = jsonwebtoken.verify(token, process.env.JWT_SECRET);
-
   try {
+    const decoded = jsonwebtoken.verify(token, process.env.JWT_SECRET);
     return decoded;
   } catch (error) {
     return 'INVALID_TOKEN';
