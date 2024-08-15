@@ -44,5 +44,4 @@ Foi realizado o deploy do aplicativo na Azure. Ele está acessível pelo seguint
 
 [https://jolly-rock-0c17fe50f.5.azurestaticapps.net/](https://jolly-rock-0c17fe50f.5.azurestaticapps.net/)
 
-Obs: o deploy foi realizado na tier grátis que oferece recursos compartilhados. Pode haver instabilidade.
-
+Obs: o aplicativo está temporariamente offline, uma vez que o meu tempo grátis na Azure acabou. Em breve vou fazer o deploy em outro provedor.
