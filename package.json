@@ -4,7 +4,7 @@
   "description": "Backend da Todo List para o processo seletivo da V360.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "nodemon src/index.js",
     "test": "jest --runInBand",
     "dev": "nodemon src/index.js"
   },
